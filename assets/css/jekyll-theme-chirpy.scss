@@ -1,0 +1,109 @@
+---
+---
+
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+/* Brighten Text Colors */
+html[data-mode="dark"] {
+  --text-color: #ffffff !important;
+  --text-muted-color: #e5e7eb !important;
+  --heading-color: #ffffff !important;
+}
+
+/* Background Image */
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('/assets/bg.jpg') !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  text-shadow: 0 1px 4px #000 !important;
+  color: #ffffff !important;
+}
+
+#main-wrapper, footer, #topbar-wrapper, #topbar, #sidebar,
+#archives ul li, #archives ul li:nth-child(odd),
+.list-group-item, .card-header,
+#search, #search-wrapper, #search-input, #search-hints, #search-results {
+  background: transparent !important;
+}
+
+/* Glassmorphism for Cards & Sidebar Nav & Code Blocks & Tables */
+.card-wrapper, .card,
+#sidebar .nav-item.active .nav-link,
+#sidebar .nav-item .nav-link:hover,
+div.highlighter-rouge,
+.table-wrapper {
+  background: rgba(0, 0, 0, 0.4) !important; /* Darker smoked glass */
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 12px !important;
+  overflow: hidden; /* Ensure rounded corners clip the images */
+}
+
+.table-wrapper {
+  overflow-x: auto !important; /* Restore horizontal scroll for tables */
+}
+
+.post-preview, .card-body,
+.code-header, .highlight, div.highlighter-rouge pre,
+table, thead, tbody, tr, th, td, tr:nth-child(even), tr:nth-child(odd) {
+  background: transparent !important;
+}
+
+.post-preview img, .preview-img {
+  border-radius: 0 !important;
+}
+
+/* Swap image to the left, text to the right on cards */
+.post-preview.flex-md-row-reverse {
+  flex-direction: row !important;
+}
+
+#toc-wrapper::before, #toc-wrapper::after, .toc-border-cover {
+  display: none !important;
+  background: transparent !important;
+}
+
+/* Fallback/Custom for Light Mode */
+html[data-mode="light"] body {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+  background-attachment: fixed !important;
+}
+
+/* Add a separator line below ## (h2) headings in content */
+.content h2 {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  padding-bottom: 0.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Smart Dark Mode Filter for Images */
+img {
+  filter: brightness(0.8) contrast(1.05) !important;
+}
+
+/* Sleek Gradient Vertical Divider for Sidebar */
+#sidebar {
+  border-right: none !important;
+}
+
+#sidebar::after {
+  content: "";
+  position: absolute;
+  top: 15%; /* start slightly lower */
+  bottom: 15%; /* end slightly higher (leaves about 70% height line) */
+  right: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25), transparent);
+}
+
+
